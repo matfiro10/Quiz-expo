@@ -1,10 +1,12 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TESTS, type TestSummary } from '../data/tests';
 import type { HomeNavigation } from '../navigation/types';
 
 export default function HomeScreen() {
   const navigation = useNavigation<HomeNavigation>();
+  const insets = useSafeAreaInsets();
 
   const renderItem = ({ item: test }: { item: TestSummary }) => (
     <Pressable
@@ -27,7 +29,7 @@ export default function HomeScreen() {
         contentContainerStyle={styles.list}
       />
 
-      <View style={styles.footer}>
+      <View style={[styles.footer, { paddingBottom: 18 + insets.bottom }]}>
         <Pressable
           style={styles.footerButton}
           onPress={() => navigation.navigate('Results')}
@@ -72,7 +74,8 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   footer: {
-    padding: 16,
+    paddingTop: 16,
+    paddingHorizontal: 16,
     borderTopWidth: 1,
     borderTopColor: '#eee',
     backgroundColor: '#fff',
