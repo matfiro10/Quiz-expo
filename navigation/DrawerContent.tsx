@@ -21,7 +21,7 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
             onPress={() => {
               props.navigation.navigate('Main', {
                 screen: 'Quiz',
-                params: { testId: test.id },
+                params: { testId: test.id, testName: test.name, testDescription: test.description },
               });
               props.navigation.closeDrawer();
             }}

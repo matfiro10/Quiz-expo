@@ -11,7 +11,7 @@ export default function HomeScreen() {
   const renderItem = ({ item: test }: { item: TestSummary }) => (
     <Pressable
       style={styles.card}
-      onPress={() => navigation.navigate('Quiz', { testId: test.id })}
+      onPress={() => navigation.navigate('Quiz', { testId: test.id, testName: test.name, testDescription: test.description })}
     >
       <Text style={styles.title}>{test.name}</Text>
       <Text style={styles.description}>{test.description}</Text>

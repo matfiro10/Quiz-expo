@@ -8,7 +8,7 @@ import type { DrawerNavigationProp } from '@react-navigation/drawer';
 // Screens reachable one after another, with a back button between them.
 export type HomeStackParamList = {
   Home: undefined;
-  Quiz: { testId: string };
+  Quiz: { testId: string, testName: string, testDescription: string };
 };
 
 // Top-level sections, reachable from the drawer.

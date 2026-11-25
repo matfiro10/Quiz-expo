@@ -5,11 +5,13 @@ import type { HomeStackParamList } from '../navigation/types';
 type Props = NativeStackScreenProps<HomeStackParamList, 'Quiz'>;
 
 export default function QuizScreen({ route }: Props) {
-  const { testId } = route.params;
+  const { testId, testName, testDescription } = route.params;
 
   return (
     <View style={styles.container}>
       <Text>Test ID: {testId}</Text>
+      <Text>Test name: {testName}</Text>
+      <Text>Test description: {testDescription}</Text>
     </View>
   );
 }
